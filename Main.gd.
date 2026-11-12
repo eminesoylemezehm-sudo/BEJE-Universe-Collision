@@ -1,0 +1,15 @@
+extends Node3D
+
+var world_size = 20
+
+func _ready():
+    create_world()
+
+func create_world():
+    for x in range(world_size):
+        for z in range(world_size):
+            var block = MeshInstance3D.new()
+            var mesh = BoxMesh.new()
+            block.mesh = mesh
+            block.position = Vector3(x, 0, z)
+            add_child(block)
